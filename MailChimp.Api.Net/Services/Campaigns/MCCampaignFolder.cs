@@ -14,6 +14,41 @@ namespace MailChimp.Api.Net.Services.Campaigns
   internal class MCCampaignFolder
   {
     /// <summary>
+    /// Add a new campaign folder
+    /// <param name="name">Name to associate with the folder.</param>
+    /// </summary>
+    internal async Task<dynamic> AddCampaignFolder(string name)
+    {
+      string endpoint = Authenticate.EndPoint(TargetTypes.campaign_folders, SubTargetType.not_applicable, SubTargetType.not_applicable);
+
+      CampaignFolder campaignFolderObject = new CampaignFolder
+      {
+        name = name
+      };
+
+      return await BaseOperation.PostAsync<CampaignFolder>(endpoint, campaignFolderObject);
+    }
+
+
+    /// <summary>
+    /// Update a campaign folder
+    /// <param name="name">Name to associate with the folder.</param>
+    /// <param name="folder_id">Unique id for the list</param>
+    /// </summary>
+    internal async Task<dynamic> UpdateCampaignFolder(string name, string folder_id)
+    {
+      string endpoint = Authenticate.EndPoint(TargetTypes.campaign_folders, SubTargetType.not_applicable, SubTargetType.not_applicable, folder_id);
+
+      CampaignFolder campaignFolderObject = new CampaignFolder
+      {
+        name = name,
+        id = folder_id
+      };
+
+      return await BaseOperation.PatchAsync<CampaignFolder>(endpoint, campaignFolderObject);
+    }
+
+    /// <summary>
     /// Get all campaign folders
     /// </summary>
     internal async Task<RootCampaignFolder> GetAllCampaignFolders()

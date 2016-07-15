@@ -178,6 +178,8 @@
     <Compile Include="Domain\Reports\Unsubscribed.cs" />
     <Compile Include="Domain\Reports\UrlsClicked.cs" />
     <Compile Include="Domain\ResultWrapper.cs" />
+    <Compile Include="Domain\TemplateFolders\RootTemplateFolder.cs" />
+    <Compile Include="Domain\TemplateFolders\TemplateFolder.cs" />
     <Compile Include="Domain\Templates\RootTemplate.cs" />
     <Compile Include="Domain\Templates\Template.cs" />
     <Compile Include="Enum\CampaignType.cs" />
@@ -246,6 +248,7 @@
     <Compile Include="Services\Reports\MCReportsSubReport.cs" />
     <Compile Include="Services\Reports\MCReportsUnsubscribes.cs" />
     <Compile Include="Services\Reports\MCReportsOverview.cs" />
+    <Compile Include="Services\TemplateFolders\MailChimpTemplateFolders.cs" />
     <Compile Include="Services\Templates\MailChimpTemplates.cs" />
   </ItemGroup>
   <ItemGroup>
