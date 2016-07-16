@@ -115,10 +115,10 @@
     <Compile Include="Domain\Feedback\RootFeedback.cs" />
     <Compile Include="Domain\Lists\AbuseReport.cs" />
     <Compile Include="Domain\Lists\Category.cs" />
+    <Compile Include="Domain\Lists\Interest.cs" />
     <Compile Include="Domain\Lists\Goal.cs" />
     <Compile Include="Domain\Lists\History.cs" />
-    <Compile Include="Domain\Lists\Interest.cs" />
-    <Compile Include="Domain\Lists\Interests.cs" />
+    <Compile Include="Domain\Lists\InterestCategory.cs" />
     <Compile Include="Domain\Lists\LastNote.cs" />
     <Compile Include="Domain\Lists\MCClient.cs" />
     <Compile Include="Domain\Lists\ListsActivity.cs" />
@@ -137,7 +137,7 @@
     <Compile Include="Domain\Lists\RootAbuseReport.cs" />
     <Compile Include="Domain\Lists\RootGoal.cs" />
     <Compile Include="Domain\Lists\RootInterest.cs" />
-    <Compile Include="Domain\Lists\RootListsCategory.cs" />
+    <Compile Include="Domain\Lists\RootListsInterestCategory.cs" />
     <Compile Include="Domain\Lists\RootListsClient.cs" />
     <Compile Include="Domain\Lists\RootListsActivity.cs" />
     <Compile Include="Domain\Lists\RootListsGrowth.cs" />
@@ -184,6 +184,7 @@
     <Compile Include="Domain\Templates\Template.cs" />
     <Compile Include="Enum\CampaignType.cs" />
     <Compile Include="Enum\CommandProperty.cs" />
+    <Compile Include="Enum\InterestCategoryType.cs" />
     <Compile Include="Enum\ListVisibility.cs" />
     <Compile Include="Enum\MergeFieldType.cs" />
     <Compile Include="Enum\Method.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Helper\BaseOperation.cs" />
     <Compile Include="Helper\FileDownloader.cs" />
     <Compile Include="Helper\FileParser.cs" />
+    <Compile Include="Helper\MD5Hash.cs" />
     <Compile Include="Helper\RetryManager.cs" />
     <Compile Include="Mapper\EnumMapper.cs" />
     <Compile Include="Program.cs" />

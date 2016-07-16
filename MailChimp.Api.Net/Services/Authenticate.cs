@@ -15,7 +15,7 @@ namespace MailChimp.Api.Net.Services
     /// <summary>
     /// Retrieve the API key from App.Config and check if its valid
     /// </summary>
-    public static string FeatchApiKey()
+    public static string FetchApiKey()
     {
       try
       {
@@ -47,7 +47,7 @@ namespace MailChimp.Api.Net.Services
     /// </summary>
     private static string GetDatacenterPrefix()
     {
-      string apikey = FeatchApiKey();
+      string apikey = FetchApiKey();
       //  The key should contain a '-'
       if (!apikey.Contains('-'))
       {
@@ -63,7 +63,7 @@ namespace MailChimp.Api.Net.Services
     /// <param name="type">v3.0 Mailchimp EndPoint targetType, example: reports, lists etc</param>
     /// <param name="subType" optional>Expects id for particular list/campaign etc</param>
     /// <param name="id" optional>Expects id for particular list/campaign etc</param>
-    /// <param name="param2" optional>NOT IMPLEMENTED YET</param>
+    /// <param name="param2" optional>Second id</param>
     /// </summary>
     public static string EndPoint(TargetTypes type, SubTargetType subType, SubTargetType childSubType, string id = "", string param2 = "")
     {
@@ -122,7 +122,7 @@ namespace MailChimp.Api.Net.Services
       //Method name have to change
       client.DefaultRequestHeaders.Accept.Clear();
       client.DefaultRequestHeaders.Authorization =
-        new AuthenticationHeaderValue("Basic", Authenticate.FeatchApiKey());
+        new AuthenticationHeaderValue("Basic", Authenticate.FetchApiKey());
     }
   }
 }

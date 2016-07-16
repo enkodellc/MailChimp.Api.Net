@@ -24,7 +24,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
 
       Schedule content = new Schedule()
         {
-          apikey = Authenticate.FeatchApiKey(),
+          apikey = Authenticate.FetchApiKey(),
           cid = campaignId,
           schedule_time = dateTime
         };
