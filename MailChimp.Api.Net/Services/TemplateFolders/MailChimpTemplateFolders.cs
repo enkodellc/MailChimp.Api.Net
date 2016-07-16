@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using MailChimp.Api.Net.Domain.TemplateFolders;
 using MailChimp.Api.Net.Enum;
@@ -48,10 +49,13 @@ namespace MailChimp.Api.Net.Services.TemplateFolders
 
     /// <summary>
     /// Get all template folders
+    /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
+    /// <param name="count">The number of records to return.</param>    
     /// </summary>
-    public async Task<RootTemplateFolder> GetAllTemplateFolders()
+    public async Task<RootTemplateFolder> GetAllTemplateFolders(int offset = 0, int count = 10)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.template_folders, SubTargetType.not_applicable, SubTargetType.not_applicable);
+      endpoint = String.Format("{0}?offset={1}&count={2}", endpoint, offset, count);
 
       return await BaseOperation.GetAsync<RootTemplateFolder>(endpoint);
     }

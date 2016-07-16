@@ -37,6 +37,8 @@ namespace MailChimp.Api.Net.Services.Templates
 
     /// <summary>
     /// Get all templates
+    /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
+    /// <param name="count">The number of records to return.</param>
     /// </summary>
     public async Task<RootTemplate> GetAllTemplates(int offset = 0, int count = 10)
     {

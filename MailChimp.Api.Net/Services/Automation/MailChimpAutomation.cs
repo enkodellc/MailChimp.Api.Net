@@ -25,12 +25,11 @@ namespace MailChimp.Api.Net.Services.Automation
     #region overview
 
     /// <summary>
-    /// Get a list of Automations
-    /// <param name="count">The number of Automations to retrieve. Default 10</param>
+    /// Get a summary of an account’s Automations
     /// </summary>
-    public async Task<RootAutomation> GetAutomationList(int count = 10)
+    public async Task<RootAutomation> GetAllAutomations()
     {
-      return await overview.GetAllAutomationLists(count);
+      return await overview.GetAllAutomations();
     }
 
     /// <summary>
@@ -39,20 +38,20 @@ namespace MailChimp.Api.Net.Services.Automation
     /// </summary>
     internal async Task<MCAutomation> GetAutomation(string workflow_id)
     {
-      return await overview.GetInfoByWorkflowId(workflow_id);
+      return await overview.GetAutomation(workflow_id);
     }
 
     #endregion overview
 
-    #region automationsemails
+    #region automation emails
 
     /// <summary>
     /// Get a list of automated emails in a workflow
     /// <param name="workflow_id">Unique id for the Automation workflow</param>
     /// </summary>
-    internal async Task<RootAutomationsEmail> GetAutomatedEmailList(string workflow_id)
+    internal async Task<RootAutomationsEmail> GetAutomationEmails(string workflow_id)
     {
-      return await automationsemails.GetAutomatedEmailList(workflow_id);
+      return await automationsemails.GetAutomationEmails(workflow_id);
     }
 
     /// <summary>
@@ -60,9 +59,9 @@ namespace MailChimp.Api.Net.Services.Automation
     /// <param name="workflow_id">Unique id for the Automation workflow</param>
     /// <param name="workflow_email_id">Unique id for the Automation workflow email</param>
     /// </summary>
-    internal async Task<AutomationsEmail> GetWorkflowEmailInfo(string workflow_id, string workflow_email_id)
+    internal async Task<AutomationsEmail> GetAutomationEmailInfo(string workflow_id, string workflow_email_id)
     {
-      return await automationsemails.GetInfoForWorkflowEmail(workflow_id, workflow_email_id);
+      return await automationsemails.GetAutomationEmailInfo(workflow_id, workflow_email_id);
     }
 
     #endregion automationsemails

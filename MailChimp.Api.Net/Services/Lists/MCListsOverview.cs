@@ -17,6 +17,8 @@ namespace MailChimp.Api.Net.Services.Lists
   {
     /// <summary>
     /// Get information about all lists
+    /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
+    /// <param name="count">The number of records to return.</param>
     /// </summary>
     internal async Task<RootMCLists> GetAllLists(int offset = 0, int count = 10)
     {

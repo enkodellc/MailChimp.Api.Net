@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using MailChimp.Api.Net.Domain.CampaignFolder;
 using MailChimp.Api.Net.Domain.Campaigns;
 using MailChimp.Api.Net.Domain.Feedback;
 using MailChimp.Api.Net.Enum;
@@ -19,6 +20,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     private MCCampaignsFeedback feedback;
     private MCCampaignsCheckList checkList;
     private MCCampaignSchedule scheduleCampaign;
+    private MCCampaignFolder campaignFolder;
 
     public MailChimpCampaigns()
     {
@@ -27,6 +29,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
       feedback = new MCCampaignsFeedback();
       checkList = new MCCampaignsCheckList();
       scheduleCampaign = new MCCampaignSchedule();
+      campaignFolder = new MCCampaignFolder();
     }
 
     #region overview
@@ -201,5 +204,55 @@ namespace MailChimp.Api.Net.Services.Campaigns
     }
 
     #endregion schedule 
+
+    #region campaign folders
+    /// <summary>
+    /// Add a new campaign folder
+    /// <param name="name">Name to associate with the folder</param>  
+    /// </summary>
+    public async Task<dynamic> AddCampaignFolder(string name)
+    {
+      return await campaignFolder.AddCampaignFolder(name);
+    }
+
+    /// <summary>
+    /// Update a campaign folder
+    /// <param name="name">Name to associate with the folder</param> 
+    /// <param name="folder_id">The unique id for the campaign folder</param>
+    /// </summary>
+    public async Task<dynamic> UpdateCampaignFolder(string name, string folder_id)
+    {
+      return await campaignFolder.UpdateCampaignFolder(name, folder_id);
+    }
+
+    /// <summary>
+    /// Get all campaign folders
+    /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
+    /// <param name="count">The number of records to return.</param>
+    /// </summary>
+    public async Task<dynamic> GetAllCampaignFolders(int offset = 0, int count = 10)
+    {
+      return await campaignFolder.GetAllCampaignFolders();
+    }
+
+    /// <summary>
+    /// Get a specific campaign folder
+    /// <param name="folder_id">The unique id for the campaign folder</param>
+    /// </summary>
+    public async Task<CampaignFolder> GetCampaignFolder(string folder_id)
+    {
+      return await campaignFolder.GetCampaignFolder(folder_id);
+    }
+
+    /// <summary>
+    /// Delete a campaign folder
+    /// <param name="folder_id">The unique id for the campaign folder</param>
+    /// </summary>
+    public async Task<HttpResponseMessage> DeleteCampaignFolder(string folder_id)
+    {
+      return await campaignFolder.DeleteCampaignFolder(folder_id);
+    }
+    #endregion
+
   }
 }

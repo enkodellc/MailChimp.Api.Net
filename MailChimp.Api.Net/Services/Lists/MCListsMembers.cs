@@ -48,8 +48,8 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <summary>
     /// Get information about members in a list
     /// <param name="list_id">Unique id for the list</param>
-    /// <param name="offset">List offset</param>
-    /// <param name="count">Number of elements to retrieve</param>
+    /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
+    /// <param name="count">The number of records to return.</param>
     /// </summary>
     internal async Task<RootMember> GetMemberInfoOfAList(string list_id, int offset = 0, int count = 10)
     {

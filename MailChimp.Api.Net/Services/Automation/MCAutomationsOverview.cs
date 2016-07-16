@@ -12,14 +12,14 @@ namespace MailChimp.Api.Net.Services.Automation
   // ===================================================================================================================================================
   internal class MCAutomationsOverview
   {
+
     /// <summary>
-    /// Get a list of Automations
+    /// Get a summary of an account’s Automations
     /// </summary>
-    internal async Task<RootAutomation> GetAllAutomationLists(int count = 10)
+    internal async Task<RootAutomation> GetAllAutomations()
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.automations, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable);
-      endpoint = String.Format("{0}?count={1}", endpoint, count);
       return await BaseOperation.GetAsync<RootAutomation>(endpoint);
     }
 
@@ -27,7 +27,7 @@ namespace MailChimp.Api.Net.Services.Automation
     /// Get information about a specific Automation workflow
     /// <param name="workflow_id">Unique id for the Automation workflow</param>
     /// </summary>
-    internal async Task<MCAutomation> GetInfoByWorkflowId(string workflow_id)
+    internal async Task<MCAutomation> GetAutomation(string workflow_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.automations, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, workflow_id);
