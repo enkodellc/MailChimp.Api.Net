@@ -18,7 +18,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Get information about all segments in a list
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<RootSegment> GetAllSegments(string list_id)
+    internal async Task<RootSegment> GetAllSegmentsAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.segments, SubTargetType.not_applicable,
                                               list_id);
@@ -39,7 +39,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="segment_id">Unique id for the segment</param>
     /// </summary>
-    internal async Task<RootSegment> GetSegmentInfo(string list_id, string segment_id)
+    internal async Task<RootSegment> GetSegmentInfoAsync(string list_id, string segment_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.segments, SubTargetType.not_applicable,
                                               list_id, segment_id);
@@ -60,7 +60,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="segment_id">The segment id to get</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteSegment(string list_id, string segment_id)
+    internal async Task<HttpResponseMessage> DeleteSegmentAsync(string list_id, string segment_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.segments, SubTargetType.not_applicable,
                                               list_id, segment_id);

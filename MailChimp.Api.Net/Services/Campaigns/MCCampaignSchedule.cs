@@ -18,7 +18,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// <param name="campaignId">Unique id for the campaign</param>
     /// <param name="dateTime">Schedule time in UTC format</param>
     /// </summary>
-    internal async Task<dynamic> ScheduleCampaign(string campaignId, DateTime dateTime)
+    internal async Task<dynamic> ScheduleCampaignAsync(string campaignId, DateTime dateTime)
     {
       string endpoint = Authenticate.LegacyEndPoint(TargetTypes.campaigns, SubTargetType.schedule);
 

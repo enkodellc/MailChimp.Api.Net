@@ -18,7 +18,7 @@ namespace MailChimp.Api.Net.Services.TemplateFolders
     /// Create a new template folder
     /// <param name="folderName">The name of the folder</param>
     /// </summary>
-    public async Task<dynamic> AddTemplateFolder(string folderName)
+    internal async Task<dynamic> AddTemplateFolderAsync(string folderName)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.template_folders, SubTargetType.not_applicable, SubTargetType.not_applicable);
 
@@ -35,7 +35,7 @@ namespace MailChimp.Api.Net.Services.TemplateFolders
     /// <param name="name">Name to associate with the folder.</param>
     /// <param name="folder_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<dynamic> UpdateTemplateFolder(string name, string folder_id)
+    internal async Task<dynamic> UpdateTemplateFolderAsync(string name, string folder_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.template_folders, SubTargetType.not_applicable, SubTargetType.not_applicable, folder_id);
 
@@ -52,7 +52,7 @@ namespace MailChimp.Api.Net.Services.TemplateFolders
     /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
     /// <param name="count">The number of records to return.</param>    
     /// </summary>
-    public async Task<RootTemplateFolder> GetAllTemplateFolders(int offset = 0, int count = 10)
+    internal async Task<RootTemplateFolder> GetAllTemplateFoldersAsync(int offset = 0, int count = 10)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.template_folders, SubTargetType.not_applicable, SubTargetType.not_applicable);
       endpoint = String.Format("{0}?offset={1}&count={2}", endpoint, offset, count);
@@ -64,7 +64,7 @@ namespace MailChimp.Api.Net.Services.TemplateFolders
     /// Get a specific template folder
     /// <param name="folder_id">Unique id for the template folder</param>
     /// </summary>
-    public async Task<TemplateFolder> GetTemplateFolder(string folder_id)
+    internal async Task<TemplateFolder> GetTemplateFolderAsync(string folder_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.template_folders, SubTargetType.not_applicable, SubTargetType.not_applicable, folder_id);
 
@@ -75,7 +75,7 @@ namespace MailChimp.Api.Net.Services.TemplateFolders
     /// Delete a template folder
     /// <param name="folder_id">Unique id for the template folder</param>
     /// </summary>
-    public async Task<HttpResponseMessage> DeleteTemplateFolder(string folder_id)
+    internal async Task<HttpResponseMessage> DeleteTemplateFolderAsync(string folder_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.template_folders, SubTargetType.not_applicable, SubTargetType.not_applicable, folder_id);
 

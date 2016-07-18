@@ -17,7 +17,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Get information about abuse reports
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<RootAbuseReport> GetAbuseReports(string list_id)
+    internal async Task<RootAbuseReport> GetAbuseReportsAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.abuse_reports,
                                               SubTargetType.not_applicable, list_id);
@@ -39,7 +39,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="report_id">Id for the abuse report</param>
     /// </summary>
-    internal async Task<AbuseReport> GetAbuseReport(string list_id, string report_id)
+    internal async Task<AbuseReport> GetAbuseReportAsync(string list_id, string report_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.abuse_reports,
                                               SubTargetType.not_applicable, list_id, report_id);

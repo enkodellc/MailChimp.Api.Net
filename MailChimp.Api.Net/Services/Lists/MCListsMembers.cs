@@ -20,7 +20,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="member">Member to add</param>
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<dynamic> AddMember(MCMember member, string list_id)
+    internal async Task<dynamic> AddMemberAsync(MCMember member, string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.members, SubTargetType.not_applicable,
                                               list_id);
@@ -34,7 +34,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="member">Member to be updated</param>
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<dynamic> UpdateMember(MCMember member, string list_id)
+    internal async Task<dynamic> UpdateMemberAsync(MCMember member, string list_id)
     {
       if (member.id == null)
         throw (new Exception("Member ID must not be null"));
@@ -51,7 +51,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
     /// <param name="count">The number of records to return.</param>
     /// </summary>
-    internal async Task<RootMember> GetMemberInfoOfAList(string list_id, int offset = 0, int count = 10)
+    internal async Task<RootMember> GetAllMembersAsync(string list_id, int offset = 0, int count = 10)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.members, SubTargetType.not_applicable,
                                               list_id);
@@ -74,7 +74,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    internal async Task<MCMember> GetMemberInfo(string list_id, string subscriber_hash)
+    internal async Task<MCMember> GetMemberAsync(string list_id, string subscriber_hash)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.members, SubTargetType.not_applicable,
                                               list_id, subscriber_hash);
@@ -96,7 +96,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteMember(string list_id, string subscriber_hash)
+    internal async Task<HttpResponseMessage> DeleteMemberAsync(string list_id, string subscriber_hash)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.members, SubTargetType.not_applicable,
                                               list_id, subscriber_hash);

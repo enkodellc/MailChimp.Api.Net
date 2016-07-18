@@ -16,7 +16,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// Return statistics for the top-performing domains from a campaign.
     /// <param name="campaignId">Unique id for campaign</param>
     /// </summary>
-    internal async Task<DomainPerformance> GetDomainPerformance(string campaignId)
+    internal async Task<DomainPerformance> GetDomainPerformanceAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.domain_performance,
                                               SubTargetType.not_applicable, campaignId);

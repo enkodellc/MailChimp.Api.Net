@@ -15,7 +15,7 @@ namespace MailChimp.Api.Net.Services.Automation
     /// View all subscribers removed from a workflow
     /// <param name="workflow_id">Unique id for the Automation workflow</param>
     /// </summary>
-    internal async Task<RemovedSubscriber> GetRemovedSubscriberList(string workflow_id)
+    internal async Task<RemovedSubscriber> GetRemovedSubscriberListAsync(string workflow_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.automations, SubTargetType.removed_subscribers,
                                               SubTargetType.not_applicable, workflow_id);

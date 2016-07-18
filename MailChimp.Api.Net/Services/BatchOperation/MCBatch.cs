@@ -11,7 +11,7 @@ namespace MailChimp.Api.Net.Services.BatchOperation
     /// Start a batch operation
     /// <param name="bundle"></param>
     /// </summary>
-    internal async Task<dynamic> PostBatchOperation(RootBatch bundle)
+    internal async Task<dynamic> PostBatchOperationAsync(RootBatch bundle)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.batches, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable);
@@ -23,7 +23,7 @@ namespace MailChimp.Api.Net.Services.BatchOperation
     /// Get the status of a batch operation request
     /// <param name="batchId">The unique id for the batch operation</param>
     /// </summary>
-    internal async Task<RootBatch> GetBatchReport(string batchId)
+    internal async Task<RootBatch> GetBatchReportAsync(string batchId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.batches, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, batchId);
@@ -35,7 +35,7 @@ namespace MailChimp.Api.Net.Services.BatchOperation
     /// <summary>
     /// Get a list of batch requests
     /// </summary>
-    //internal async Task<T> GetAllBatchReport()
+    //internal async Task<T> GetAllBatchReportAsync()
     //{
     //    string endpoint = Authenticate.EndPoint(TargetTypes.batches, SubTargetType.not_applicable, SubTargetType.not_applicable);
 

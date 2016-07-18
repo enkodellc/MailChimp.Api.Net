@@ -15,7 +15,7 @@ namespace MailChimp.Api.Net.Services.Conversations
     /// Get conversation messages
     /// <param name="conversation_id">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<RootConversationMessage> GetAllMessages(string conversation_id)
+    internal async Task<RootConversationMessage> GetAllMessagesAsync(string conversation_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.conversations, SubTargetType.messages,
                                               SubTargetType.not_applicable, conversation_id);
@@ -29,7 +29,7 @@ namespace MailChimp.Api.Net.Services.Conversations
     /// <param name="conversation_id">Unique id for the campaign</param>
     /// <param name="message_id">The unique id for the conversation message</param>
     /// </summary>
-    internal async Task<ConversationMessage> GetMessage(string conversation_id, string message_id)
+    internal async Task<ConversationMessage> GetMessageAsync(string conversation_id, string message_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.conversations, SubTargetType.messages,
                                               SubTargetType.not_applicable, conversation_id, message_id);

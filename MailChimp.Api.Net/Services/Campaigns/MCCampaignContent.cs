@@ -16,7 +16,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     ///<summary>
     ///Get campaign content
     ///</summary>
-    internal async Task<RootContent> GetCampaignContent(string campaign_id)
+    internal async Task<RootContent> GetCampaignContentAsync(string campaign_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.content, SubTargetType.not_applicable,
                                               campaign_id);
@@ -28,7 +28,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     ///Set campaign content
     ///</summary>
     [Obsolete("Use other overloaded version of SetCampaignContent()")]
-    internal async Task<dynamic> SetCampaignContent(string campaign_id, ContentSetting setting,
+    internal async Task<dynamic> SetCampaignContentAsync(string campaign_id, ContentSetting setting,
                                                     ContentTemplate contentTemplate)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.content, SubTargetType.not_applicable,
@@ -48,7 +48,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     ///<summary>
     ///Set campaign content
     ///</summary>
-    internal async Task<dynamic> SetCampaignContent(string campaign_id, ContentSetting setting)
+    internal async Task<dynamic> SetCampaignContentAsync(string campaign_id, ContentSetting setting)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.content, SubTargetType.not_applicable,
                                               campaign_id);
@@ -66,7 +66,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     ///<summary>
     ///Set campaign content
     ///</summary>
-    internal async Task<dynamic> SetCampaignContent(string campaign_id, ContentTemplate contentTemplate)
+    internal async Task<dynamic> SetCampaignContentAsync(string campaign_id, ContentTemplate contentTemplate)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.content, SubTargetType.not_applicable,
                                               campaign_id);

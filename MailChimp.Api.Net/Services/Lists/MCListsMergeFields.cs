@@ -21,7 +21,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="mergeField">The merge field to add.</param>
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<dynamic> AddMergeField(MergeField mergeField, string list_id)
+    internal async Task<dynamic> AddMergeFieldAsync(MergeField mergeField, string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.merge_fields,
                                               SubTargetType.not_applicable, list_id);
@@ -34,7 +34,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="mergeField">Merge field to update</param>
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<dynamic> UpdateMergeField(MergeField mergeField, string list_id)
+    internal async Task<dynamic> UpdateMergeFieldAsync(MergeField mergeField, string list_id)
     {
       if (mergeField.merge_id < 0)
         throw (new Exception("Merge Field ID must not be less than zero."));
@@ -50,7 +50,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Get all merge fields for a list
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<RootMergeField> GetAllMergeFields(string list_id)
+    internal async Task<RootMergeField> GetAllMergeFieldsAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.merge_fields,
                                               SubTargetType.not_applicable, list_id);
@@ -72,7 +72,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="merge_id">The id for the merge field</param>
     /// </summary>
-    internal async Task<MergeField> GetMergeField(string list_id, string merge_id)
+    internal async Task<MergeField> GetMergeFieldAsync(string list_id, string merge_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.merge_fields,
                                               SubTargetType.not_applicable, list_id, merge_id);
@@ -94,7 +94,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="merge_id">The id for the merge field</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteMergeField(string list_id, string merge_id)
+    internal async Task<HttpResponseMessage> DeleteMergeFieldAsync(string list_id, string merge_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.merge_fields,
                                               SubTargetType.not_applicable, list_id, merge_id);

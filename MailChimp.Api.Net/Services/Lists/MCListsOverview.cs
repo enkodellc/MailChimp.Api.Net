@@ -20,7 +20,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
     /// <param name="count">The number of records to return.</param>
     /// </summary>
-    internal async Task<RootMCLists> GetAllLists(int offset = 0, int count = 10)
+    internal async Task<RootMCLists> GetAllListsAsync(int offset = 0, int count = 10)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable);
@@ -41,7 +41,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Get information about a specific list
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<MCLists> GetList(string list_id)
+    internal async Task<MCLists> GetListAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, list_id);
@@ -61,7 +61,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Delete a list
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteList(string list_id)
+    internal async Task<HttpResponseMessage> DeleteListAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, list_id);
@@ -92,7 +92,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="emailTypeOption">Whether the list supports multiple formats for emails.</param>
     /// <param name="listVisibility">Whether this list is public or private</param>
     /// </summary>
-    internal async Task<dynamic> CreateList(string listName, Contact contactForCampaignFotter,
+    internal async Task<dynamic> CreateListAsync(string listName, Contact contactForCampaignFotter,
                                             string permissionReminderText, CampaignDefaults defaultValue,
                                             bool emailTypeOption = false,
                                             ListVisibility listVisibility = ListVisibility.pub)
@@ -123,7 +123,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="emailTypeOption">Whether the list supports multiple formats for emails.</param>
     /// <param name="listVisibility">Whether this list is public or private</param>
     /// </summary>
-    internal async Task<dynamic> UpdateList(string list_id, string listName, Contact contactForCampaignFotter,
+    internal async Task<dynamic> UpdateListAsync(string list_id, string listName, Contact contactForCampaignFotter,
                                             string permissionReminderText, CampaignDefaults defaultValue,
                                             bool emailTypeOption = false,
                                             ListVisibility listVisibility = ListVisibility.pub)

@@ -18,7 +18,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Add a new campaign folder
     /// <param name="name">Name to associate with the folder.</param>
     /// </summary>
-    internal async Task<dynamic> AddCampaignFolder(string name)
+    internal async Task<dynamic> AddCampaignFolderAsync(string name)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaign_folders, SubTargetType.not_applicable, SubTargetType.not_applicable);
 
@@ -36,7 +36,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// <param name="name">Name to associate with the folder.</param>
     /// <param name="folder_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<dynamic> UpdateCampaignFolder(string name, string folder_id)
+    internal async Task<dynamic> UpdateCampaignFolderAsync(string name, string folder_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaign_folders, SubTargetType.not_applicable, SubTargetType.not_applicable, folder_id);
 
@@ -54,7 +54,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
     /// <param name="count">The number of records to return.</param>
     /// </summary>
-    internal async Task<RootCampaignFolder> GetAllCampaignFolders(int offset = 0, int count = 10)
+    internal async Task<RootCampaignFolder> GetAllCampaignFoldersAsync(int offset = 0, int count = 10)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaign_folders, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable);
@@ -67,7 +67,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Get a specific campaign folder
     /// <param name="folder_id">Unique id for the campaign folder</param>
     /// </summary>
-    internal async Task<CampaignFolder> GetCampaignFolder(string folder_id)
+    internal async Task<CampaignFolder> GetCampaignFolderAsync(string folder_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaign_folders, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, folder_id);
@@ -79,7 +79,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Delete a campaign folder
     /// <param name="folder_id">Unique id for the campaign folder</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteCampaignFolder(string folder_id)
+    internal async Task<HttpResponseMessage> DeleteCampaignFolderAsync(string folder_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaign_folders, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, folder_id);

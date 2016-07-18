@@ -17,7 +17,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Get list growth history data
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<RootListsGrowthHistory> GetGrowthHistory(string list_id)
+    internal async Task<RootListsGrowthHistory> GetGrowthHistoryAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.growth_history,
                                               SubTargetType.not_applicable, list_id);
@@ -38,7 +38,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="month">A specific month of list growth history.</param>
     /// </summary>
-    internal async Task<RootListsGrowth> GetGrowthHistoryByMonth(string list_id, string month)
+    internal async Task<RootListsGrowth> GetGrowthHistoryByMonthAsync(string list_id, string month)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.growth_history,
                                               SubTargetType.not_applicable, list_id, month);

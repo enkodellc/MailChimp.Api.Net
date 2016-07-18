@@ -23,7 +23,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="type">Determines how this category’s interests are displayed on signup forms</param>
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<dynamic> CreateInterestCategory(string title, int display_order, InterestCategoryType type, string list_id)
+    internal async Task<dynamic> CreateInterestCategoryAsync(string title, int display_order, InterestCategoryType type, string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories, SubTargetType.not_applicable,
                                               list_id);
@@ -45,7 +45,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="interest_category_id">The unique id for the interest category.</param>
     /// </summary>
-    internal async Task<dynamic> UpdateInterestCategory(string title, int display_order, InterestCategoryType type, string list_id, string interest_category_id)
+    internal async Task<dynamic> UpdateInterestCategoryAsync(string title, int display_order, InterestCategoryType type, string list_id, string interest_category_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories, SubTargetType.not_applicable,
                                               list_id, interest_category_id);
@@ -63,7 +63,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Get information about a list’s interest categories
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<RootListsInterestCategory> GetAllInterestCategories(string list_id)
+    internal async Task<RootListsInterestCategory> GetAllInterestCategoriesAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories,
                                               SubTargetType.not_applicable, list_id);
@@ -84,7 +84,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="interest_category_id">Unique id for the interest category</param>
     /// </summary>
-    internal async Task<InterestCategory> GetInterestCategory(string list_id, string interest_category_id)
+    internal async Task<InterestCategory> GetInterestCategoryAsync(string list_id, string interest_category_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories,
                                               SubTargetType.not_applicable, list_id, interest_category_id);
@@ -105,7 +105,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="interest_category_id">Unique id for the interest category</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteInterestCategory(string list_id, string interest_category_id)
+    internal async Task<HttpResponseMessage> DeleteInterestCategoryAsync(string list_id, string interest_category_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories,
                                               SubTargetType.not_applicable, list_id, interest_category_id);
@@ -136,7 +136,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="interest_category_id">	The unique id for the interest category</param>
     /// </summary>
-    internal async Task<dynamic> CreateInterestCategoryInterest(string name, string list_id, string interest_category_id)
+    internal async Task<dynamic> CreateInterestCategoryInterestAsync(string name, string list_id, string interest_category_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories, SubTargetType.interests,
                                               list_id, interest_category_id);
@@ -158,7 +158,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="interest_category_id">The unique id for the interest category</param>
     /// <param name="interest_id">	The specific interest or ‘group name’</param>
     /// </summary>
-    internal async Task<dynamic> UpdateInterestCategoryInterest(string name, int display_order, int subscriber_count,  string list_id, string interest_category_id, string interest_id)
+    internal async Task<dynamic> UpdateInterestCategoryInterestAsync(string name, int display_order, int subscriber_count, string list_id, string interest_category_id, string interest_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories, SubTargetType.interests,
                                               list_id, interest_category_id);
@@ -180,7 +180,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="interest_category_id">Unique id for the interest category</param>
     /// </summary>
-    internal async Task<RootInterest> GetAllInterestCategoryInterests(string list_id, string interest_category_id)
+    internal async Task<RootInterest> GetAllInterestCategoryInterestsAsync(string list_id, string interest_category_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories,
                                               SubTargetType.interests, list_id, interest_category_id);
@@ -202,7 +202,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="interest_category_id">Unique id for the interest category</param>
     /// <param name="interest_id">The specific interest or ‘group name</param>
     /// </summary>
-    internal async Task<RootInterest> GetInterestCategoryInterest(string list_id, string interest_category_id, string interest_id)
+    internal async Task<RootInterest> GetInterestCategoryInterestAsync(string list_id, string interest_category_id, string interest_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.interest_categories,
                                               SubTargetType.interests, list_id, interest_category_id);
@@ -224,7 +224,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="interest_category_id">Unique id for the interest category</param>
     /// <param name="interest_id">The specific interest or ‘group name</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteInterestCategoryInterest(string list_id,
+    internal async Task<HttpResponseMessage> DeleteInterestCategoryInterestAsync(string list_id,
                                                                               string interest_category_id,
                                                                               string interest_id)
     {

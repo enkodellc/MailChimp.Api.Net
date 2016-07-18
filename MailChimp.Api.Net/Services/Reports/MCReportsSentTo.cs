@@ -16,7 +16,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// Return top open locations for a specific campaign.
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<RootSentTo> GetRecipientsInfo(string campaignId)
+    internal async Task<RootSentTo> GetRecipientsInfoAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.sent_to, SubTargetType.not_applicable,
                                               campaignId);
@@ -29,7 +29,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Unique id for the campaign</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    internal async Task<SentTo> GetCampaignRecipient(string campaignId, string subscriber_hash)
+    internal async Task<SentTo> GetCampaignRecipientAsync(string campaignId, string subscriber_hash)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.sent_to, SubTargetType.not_applicable,
                                               campaignId, subscriber_hash);

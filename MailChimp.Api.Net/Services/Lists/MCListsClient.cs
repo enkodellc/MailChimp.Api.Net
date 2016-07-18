@@ -17,7 +17,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Get top email clients
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<RootListsClient> GetTopEmailClients(string list_id)
+    internal async Task<RootListsClient> GetTopEmailClientsAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.clients, SubTargetType.not_applicable,
                                               list_id);

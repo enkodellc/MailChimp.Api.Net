@@ -267,7 +267,7 @@ namespace MailChimp.Api.Net
 
         Random r = new Random();
         var listResult =
-          myList.CreateList("myTmpList#" + r.Next(0, 100), ct, "You gave me permission ", cd, false, ListVisibility.prv)
+          myList.CreateListAsync("myTmpList#" + r.Next(0, 100), ct, "You gave me permission ", cd, false, ListVisibility.prv)
                 .Result;
 
         #region Create Merge Field              
@@ -283,7 +283,7 @@ namespace MailChimp.Api.Net
             list_id = listResult.Result.id
           };
 
-        var mergeFieldResult = myList.AddMergeField(mergeField, listResult.Result.id).Result;
+        var mergeFieldResult = myList.AddMergeFieldAsync(mergeField, listResult.Result.id).Result;
 
         MergeField mergeFieldUpdate = new MergeField
           {
@@ -298,7 +298,7 @@ namespace MailChimp.Api.Net
             @public = true
           };
 
-        var mergeFieldUpdateResult = myList.UpdateMergeField(mergeFieldUpdate, listResult.Result.id);
+        var mergeFieldUpdateResult = myList.UpdateMergeFieldAsync(mergeFieldUpdate, listResult.Result.id);
 
         if (mergeFieldUpdateResult != null)
         {
@@ -317,7 +317,7 @@ namespace MailChimp.Api.Net
                 {"CNAME", "company"}
               }
           };
-        var memberAddResult = myList.AddMember(member, listResult.Result.id).Result;
+        var memberAddResult = myList.AddMemberAsync(member, listResult.Result.id).Result;
 
         if (!memberAddResult.HasError)
         {
@@ -335,7 +335,7 @@ namespace MailChimp.Api.Net
                   {"CNAME", "Company Name"}
                 }
             };
-          var memberUpdateResult = myList.UpdateMember(updateMember, listResult.Result.id).Result;
+          var memberUpdateResult = myList.UpdateMemberAsync(updateMember, listResult.Result.id).Result;
 
           if (!memberUpdateResult.HasError)
           {

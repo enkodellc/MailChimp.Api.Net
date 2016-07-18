@@ -17,7 +17,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// Return detailed information about links clicked in campaigns.
     /// <param name="campaignId">Campaign Id</param>
     /// </summary>
-    internal async Task<ClickReports> GetClickDetails(string campaignId)
+    internal async Task<ClickReports> GetClickDetailsAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.click_details,
                                               SubTargetType.not_applicable, campaignId);
@@ -30,7 +30,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Campaign Id</param>
     /// <param name="linkId">The id for the link.</param>
     /// </summary>
-    internal async Task<ClickReports> GetLinkClickDetails(string campaignId, string linkId)
+    internal async Task<ClickReports> GetClickDetailsByLinkAsync(string campaignId, string linkId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.click_details,
                                               SubTargetType.not_applicable, campaignId, linkId);
@@ -43,7 +43,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Campaign Id</param>
     /// <param name="linkId">The id for the link</param>
     /// </summary>
-    internal async Task<ClickReports> GetAllSubscribersInfo(string campaignId, string linkId)
+    internal async Task<ClickReports> GetAllSubscribersInfoAsync(string campaignId, string linkId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.click_details, SubTargetType.members,
                                               campaignId, linkId);
@@ -57,7 +57,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="linkId">The id for the link</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    internal async Task<ClickReports> GetSubscriberInfo(string campaignId, string linkId, string subscriber_hash)
+    internal async Task<ClickReports> GetSubscriberInfoAsync(string campaignId, string linkId, string subscriber_hash)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.click_details, SubTargetType.members,
                                               campaignId, linkId);

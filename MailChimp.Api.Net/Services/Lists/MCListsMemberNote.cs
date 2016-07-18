@@ -19,7 +19,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    internal async Task<RootNote> GetLast50Goal(string list_id, string subscriber_hash)
+    internal async Task<RootNote> GetLast50GoalAsync(string list_id, string subscriber_hash)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.members, SubTargetType.notes, list_id,
                                               subscriber_hash);
@@ -42,7 +42,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// <param name="note_id">The id for the note.</param>
     /// </summary>
-    internal async Task<Note> GetNote(string list_id, string subscriber_hash, string note_id)
+    internal async Task<Note> GetNoteAsync(string list_id, string subscriber_hash, string note_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.members, SubTargetType.notes, list_id,
                                               subscriber_hash);
@@ -66,7 +66,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// <param name="note_id">The id for the note.</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteListMember(string list_id, string subscriber_hash, string note_id)
+    internal async Task<HttpResponseMessage> DeleteListMemberAsync(string list_id, string subscriber_hash, string note_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.members, SubTargetType.notes, list_id,
                                               subscriber_hash);

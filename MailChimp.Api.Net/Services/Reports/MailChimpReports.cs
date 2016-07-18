@@ -33,36 +33,36 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <summary>
     /// Get campaign reports
     /// </summary>
-    public async Task<ReportOverview> GetOverview()
+    public async Task<ReportOverview> GetOverviewAsync()
     {
-      return await reportOverview.Overview();
+      return await reportOverview.GetOverviewAsync();
     }
 
     /// <summary>
     /// Get a specific campaign report
     /// <param name="campaignId">Campaign Id</param>
     /// </summary>
-    public async Task<ReportOverview_Campaign> GetOverviewByCampaign(string campaignId)
+    public async Task<ReportOverview_Campaign> GetCampaignOverviewAsync(string campaignId)
     {
-      return await reportOverview.CampaignOverview(campaignId);
+      return await reportOverview.GetCampaignOverviewAsync(campaignId);
     }
 
     /// <summary>
     /// Return recent feedback based on a campaign’s statistics
     /// <param name="campaignId">Campaign Id</param>
     /// </summary>
-    public async Task<CampaignAdvice> GetAdvice(string campaignId)
+    public async Task<CampaignAdvice> GetAdviceAsync(string campaignId)
     {
-      return await campaign.GetAdvice(campaignId);
+      return await campaign.GetAdviceAsync(campaignId);
     }
 
     /// <summary>
     /// Return detailed information about links clicked in campaigns.
     /// <param name="campaignId">Campaign Id</param>
     /// </summary>
-    public async Task<ClickReports> GetClickDetails(string campaignId)
+    public async Task<ClickReports> GetClickDetailsAsync(string campaignId)
     {
-      return await clickDetails.GetClickDetails(campaignId);
+      return await clickDetails.GetClickDetailsAsync(campaignId);
     }
 
     /// <summary>
@@ -70,9 +70,9 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Campaign Id</param>
     /// <param name="linkId">The id for the link.</param>
     /// </summary>
-    public async Task<ClickReports> GetClickDetailByLinkId(string campaignId, string linkId)
+    public async Task<ClickReports> GetClickDetailsByLinkAsync(string campaignId, string linkId)
     {
-      return await clickDetails.GetLinkClickDetails(campaignId, linkId);
+      return await clickDetails.GetClickDetailsByLinkAsync(campaignId, linkId);
     }
 
     /// <summary>
@@ -80,9 +80,9 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Campaign Id</param>
     /// <param name="linkId">The id for the link</param>
     /// </summary>
-    public async Task<ClickReports> GetAlllSubscribersInfo(string campaignId, string linkId)
+    public async Task<ClickReports> GetAlllSubscribersInfoAsync(string campaignId, string linkId)
     {
-      return await clickDetails.GetAllSubscribersInfo(campaignId, linkId);
+      return await clickDetails.GetAllSubscribersInfoAsync(campaignId, linkId);
     }
 
     /// <summary>
@@ -91,36 +91,36 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="linkId">The id for the link</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    public async Task<ClickReports> GetSubscriberInfo(string campaignId, string linkId, string subscriber_hash)
+    public async Task<ClickReports> GetSubscriberInfoAsync(string campaignId, string linkId, string subscriber_hash)
     {
-      return await clickDetails.GetSubscriberInfo(campaignId, linkId, subscriber_hash);
+      return await clickDetails.GetSubscriberInfoAsync(campaignId, linkId, subscriber_hash);
     }
 
     /// <summary>
     /// Return statistics for the top-performing domains from a campaign.
     /// <param name="campaignId">Unique id for campaign</param>
     /// </summary>
-    public async Task<DomainPerformance> GetDomainPerformance(string campaignId)
+    public async Task<DomainPerformance> GetDomainPerformanceAsync(string campaignId)
     {
-      return await performance.GetDomainPerformance(campaignId);
+      return await performance.GetDomainPerformanceAsync(campaignId);
     }
 
     /// <summary>
     /// Return a summary of social activity for the campaign, tracked by EepURL.
     /// <param name="campaignId">Unique id for campaign</param>
     /// </summary>
-    public async Task<Eepurl> GetEepUrlActivity(string campaignId)
+    public async Task<Eepurl> GetEepUrlActivityAsync(string campaignId)
     {
-      return await eepUrl.GetEepUrlActivity(campaignId);
+      return await eepUrl.GetEepUrlActivityAsync(campaignId);
     }
 
     /// <summary>
     /// Return list member activity for a specific campaign
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    public async Task<EmailActivity> GetEmailActivity(string campaignId)
+    public async Task<EmailActivity> GetEmailActivityAsync(string campaignId)
     {
-      return await emailActivity.GetEmailActivity(campaignId);
+      return await emailActivity.GetEmailActivityAsync(campaignId);
     }
 
     /// <summary>
@@ -128,27 +128,27 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Unique id for the campaign</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    public async Task<EmailActivity> GetEmailActivityBySubscriber(string campaignId, string subscriber_hash)
+    public async Task<EmailActivity> GetEmailActivityBySubscriberAsync(string campaignId, string subscriber_hash)
     {
-      return await emailActivity.GetSubscriberEmailActivity(campaignId, subscriber_hash);
+      return await emailActivity.GetSubscriberEmailActivityAsync(campaignId, subscriber_hash);
     }
 
     /// <summary>
     /// Return top open locations for a specific campaign.
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    public async Task<RootLocation> GetTopLocation(string campaignId)
+    public async Task<RootLocation> GetTopLocationAsync(string campaignId)
     {
-      return await location.GetTopLocation(campaignId);
+      return await location.GetTopLocationAsync(campaignId);
     }
 
     /// <summary>
     /// Return top open locations for a specific campaign.
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    public async Task<RootSentTo> GetRecipientsInfo(string campaignId)
+    public async Task<RootSentTo> GetRecipientsInfoAsync(string campaignId)
     {
-      return await sentTo.GetRecipientsInfo(campaignId);
+      return await sentTo.GetRecipientsInfoAsync(campaignId);
     }
 
     /// <summary>
@@ -156,27 +156,27 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Unique id for the campaign</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    public async Task<SentTo> GetCampaignRecipient(string campaignId, string subscriber_hash)
+    public async Task<SentTo> GetCampaignRecipientAsync(string campaignId, string subscriber_hash)
     {
-      return await sentTo.GetCampaignRecipient(campaignId, subscriber_hash);
+      return await sentTo.GetCampaignRecipientAsync(campaignId, subscriber_hash);
     }
 
     /// <summary>
     /// Return A list of reports for child campaigns of a specific parent campaign. 
     /// <param name="campaignId">Campaign Id</param>
     /// </summary>
-    public async Task<Sub_Reports> GetReportForChildCampaign(string campaignId)
+    public async Task<Sub_Reports> GetReportForChildCampaignAsync(string campaignId)
     {
-      return await subReport.GetChildCampaignReports(campaignId);
+      return await subReport.GetChildCampaignReportsAsync(campaignId);
     }
 
     /// <summary>
     /// Return statistics for the top-performing domains from a campaign.
     /// <param name="campaignId">Unique id for campaign</param>
     /// </summary>
-    public async Task<RootUnsubscribe> GetUnsubscriberList(string campaignId)
+    public async Task<RootUnsubscribe> GetUnsubscriberListAsync(string campaignId)
     {
-      return await unsubscribe.GetUnsubscriberList(campaignId);
+      return await unsubscribe.GetUnsubscriberListAsync(campaignId);
     }
 
     /// <summary>
@@ -184,9 +184,9 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Unique id for the campaign</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    public async Task<SentTo> GetUnsubscriberInfo(string campaignId, string subscriber_hash)
+    public async Task<SentTo> GetUnsubscriberInfoAsync(string campaignId, string subscriber_hash)
     {
-      return await unsubscribe.GetUnsubscriberInfo(campaignId, subscriber_hash);
+      return await unsubscribe.GetUnsubscriberInfoAsync(campaignId, subscriber_hash);
     }
   }
 }

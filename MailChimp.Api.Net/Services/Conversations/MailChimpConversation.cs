@@ -24,18 +24,18 @@ namespace MailChimp.Api.Net.Services.Conversations
     /// <summary>
     /// Get a list of conversations
     /// </summary>
-    public async Task<RootConversation> GetConversations()
+    public async Task<RootConversation> GetConversationsAsync()
     {
-      return await overview.GetConversations();
+      return await overview.GetConversationsAsync();
     }
 
     /// <summary>
     /// Get information about a conversation
     /// <param name="conversation_id">Unique id for the campaign</param>
     /// </summary>
-    public async Task<Conversation> GetConversation(string conversation_id)
+    public async Task<Conversation> GetConversationAsync(string conversation_id)
     {
-      return await overview.GetConversation(conversation_id);
+      return await overview.GetConversationAsync(conversation_id);
     }
 
     #endregion overview
@@ -46,9 +46,9 @@ namespace MailChimp.Api.Net.Services.Conversations
     /// Get conversation messages
     /// <param name="conversation_id">Unique id for the campaign</param>
     /// </summary>
-    public async Task<RootConversationMessage> GetAllMessages(string conversation_id)
+    public async Task<RootConversationMessage> GetAllMessagesAsync(string conversation_id)
     {
-      return await msg.GetAllMessages(conversation_id);
+      return await msg.GetAllMessagesAsync(conversation_id);
     }
 
     /// <summary>
@@ -56,9 +56,9 @@ namespace MailChimp.Api.Net.Services.Conversations
     /// <param name="conversation_id">Unique id for the campaign</param>
     /// <param name="message_id">The unique id for the conversation message</param>
     /// </summary>
-    public async Task<ConversationMessage> GetMessage(string conversation_id, string message_id)
+    public async Task<ConversationMessage> GetMessageAsync(string conversation_id, string message_id)
     {
-      return await msg.GetMessage(conversation_id, message_id);
+      return await msg.GetMessageAsync(conversation_id, message_id);
     }
 
     #endregion msg

@@ -15,7 +15,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// <summary>
     /// Get all campaigns
     /// </summary>
-    internal async Task<RootCampaign> GetAllCampaigns()
+    internal async Task<RootCampaign> GetAllCampaignsAsync()
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable);
@@ -27,7 +27,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Get information about a specific campaign
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<Campaign> GetCampaign(string campaignId)
+    internal async Task<Campaign> GetCampaignAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, campaignId);
@@ -39,7 +39,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Delete a campaign
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteCampaign(string campaignId)
+    internal async Task<HttpResponseMessage> DeleteCampaignAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, campaignId);
@@ -55,7 +55,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// <param name="campaignTracking"></param>
     /// <param name="campaignTracking"></param>
     /// </summary>
-    internal async Task<dynamic> CreateCampaign(CampaignType campaignType,
+    internal async Task<dynamic> CreateCampaignAsync(CampaignType campaignType,
                                                 Recipients CampaignRecipient,
                                                 Settings campaignSettings,
                                                 Tracking campaignTracking)
@@ -79,7 +79,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Cancel a campaign
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<dynamic> CancelCampaign(string campaignId)
+    internal async Task<dynamic> CancelCampaignAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.action3, SubTargetType.not_applicable,
                                               campaignId);
@@ -91,7 +91,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Send a campaign
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<dynamic> SendCampaign(string campaignId)
+    internal async Task<dynamic> SendCampaignAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.action6, SubTargetType.not_applicable,
                                               campaignId);

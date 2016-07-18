@@ -18,7 +18,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// <param name="list_id">Unique id for the list</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    internal async Task<RootGoal> GetLast50Goal(string list_id, string subscriber_hash)
+    internal async Task<RootGoal> GetLast50GoalAsync(string list_id, string subscriber_hash)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.members, SubTargetType.goals, list_id,
                                               subscriber_hash);

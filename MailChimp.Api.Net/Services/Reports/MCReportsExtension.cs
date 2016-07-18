@@ -9,7 +9,7 @@ namespace MailChimp.Api.Net.Services.Reports
     public void SubscriberWithMostOpen()
     {
       MailChimpReports reports = new MailChimpReports();
-      var x = reports.GetEmailActivity("3709ea682b").Result;
+      var x = reports.GetEmailActivityAsync("3709ea682b").Result;
 
       var emailCount = x.emails.Count;
       Dictionary<string, int> activityList = new Dictionary<string, int>();

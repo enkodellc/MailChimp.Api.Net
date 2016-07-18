@@ -16,7 +16,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// Return A list of reports for child campaigns of a specific parent campaign. 
     /// <param name="campaignId">Campaign Id</param>
     /// </summary>
-    internal async Task<Sub_Reports> GetChildCampaignReports(string campaignId)
+    internal async Task<Sub_Reports> GetChildCampaignReportsAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.sub_reports,
                                               SubTargetType.not_applicable, campaignId);

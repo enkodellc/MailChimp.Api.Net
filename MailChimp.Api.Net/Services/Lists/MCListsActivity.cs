@@ -17,7 +17,7 @@ namespace MailChimp.Api.Net.Services.Lists
     /// Get recent list activity
     /// <param name="list_id">Unique id for the list</param>
     /// </summary>
-    internal async Task<RootListsActivity> GetRecentActivity(string list_id)
+    internal async Task<RootListsActivity> GetRecentActivityAsync(string list_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.lists, SubTargetType.activity, SubTargetType.not_applicable,
                                               list_id);

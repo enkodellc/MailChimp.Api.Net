@@ -21,9 +21,9 @@ namespace MailChimp.Api.Net.Services.BatchOperation
     /// Start a batch operation
     /// <param name="bundle"></param>
     /// </summary>
-    public async Task<dynamic> PostBatchOperation(RootBatch bundle)
+    public async Task<dynamic> PostBatchOperationAsync(RootBatch bundle)
     {
-      return await batch.PostBatchOperation(bundle);
+      return await batch.PostBatchOperationAsync(bundle);
     }
 
 
@@ -31,9 +31,9 @@ namespace MailChimp.Api.Net.Services.BatchOperation
     /// Get the status of a batch operation request
     /// <param name="batchId">The unique id for the batch operation</param>
     /// </summary>
-    public async Task<RootBatch> GetBatchReport(string batchId)
+    public async Task<RootBatch> GetBatchReportAsync(string batchId)
     {
-      return await batch.GetBatchReport(batchId);
+      return await batch.GetBatchReportAsync(batchId);
     }
   }
 }

@@ -16,7 +16,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// Return recent feedback based on a campaign’s statistics
     /// <param name="campaignId">Campaign Id</param>
     /// </summary>
-    internal async Task<CampaignAdvice> GetAdvice(string campaignId)
+    internal async Task<CampaignAdvice> GetAdviceAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.advice, SubTargetType.not_applicable,
                                               campaignId);

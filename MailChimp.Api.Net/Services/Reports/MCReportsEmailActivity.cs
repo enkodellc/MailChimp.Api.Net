@@ -16,7 +16,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// Return list member activity for a specific campaign
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<EmailActivity> GetEmailActivity(string campaignId)
+    internal async Task<EmailActivity> GetEmailActivityAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.email_activity,
                                               SubTargetType.not_applicable, campaignId);
@@ -29,7 +29,7 @@ namespace MailChimp.Api.Net.Services.Reports
     /// <param name="campaignId">Unique id for the campaign</param>
     /// <param name="subscriber_hash">The MD5 hash of the lowercase version of the list member’s email address</param>
     /// </summary>
-    internal async Task<EmailActivity> GetSubscriberEmailActivity(string campaignId, string subscriber_hash)
+    internal async Task<EmailActivity> GetSubscriberEmailActivityAsync(string campaignId, string subscriber_hash)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.reports, SubTargetType.email_activity,
                                               SubTargetType.not_applicable, campaignId, subscriber_hash);

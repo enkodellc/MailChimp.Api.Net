@@ -18,7 +18,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// <param name="campaign_id">Unique id for the campaign</param>
     /// </summary>
     [Obsolete("MethodName is misleading, USE GetCheckList() instead.")]
-    internal async Task<RootCheckList> GetCampaignContent(string campaign_id)
+    internal async Task<RootCheckList> GetCampaignContentAsync(string campaign_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.send_checklist,
                                               SubTargetType.not_applicable, campaign_id);
@@ -31,7 +31,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Get the send checklist for a campaign
     /// <param name="campaign_id">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<RootCheckList> GetCheckList(string campaign_id)
+    internal async Task<RootCheckList> GetCheckListAsync(string campaign_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.send_checklist,
                                               SubTargetType.not_applicable, campaign_id);

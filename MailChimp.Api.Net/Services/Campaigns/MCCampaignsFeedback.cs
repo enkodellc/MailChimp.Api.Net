@@ -16,7 +16,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// Get feedback about a campaign
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
-    internal async Task<RootFeedback> GetCampaignFeedback(string campaignId)
+    internal async Task<RootFeedback> GetCampaignFeedbackAsync(string campaignId)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.feedback,
                                               SubTargetType.not_applicable, campaignId);
@@ -29,7 +29,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// <param name="campaignId">Unique id for the campaign</param>
     /// <param name="feedback_id">Unique id for the feedback message.</param>
     /// </summary>
-    internal async Task<Feedback> GetFeedback(string campaignId, string feedback_id)
+    internal async Task<Feedback> GetFeedbackAsync(string campaignId, string feedback_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.feedback,
                                               SubTargetType.not_applicable, campaignId, feedback_id);
@@ -42,7 +42,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// <param name="campaignId">Unique id for the campaign</param>
     /// <param name="feedback_id">Unique id for the feedback message.</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteFeedback(string campaignId, string feedback_id)
+    internal async Task<HttpResponseMessage> DeleteFeedbackAsync(string campaignId, string feedback_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.feedback,
                                               SubTargetType.not_applicable, campaignId, feedback_id);

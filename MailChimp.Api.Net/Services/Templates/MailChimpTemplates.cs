@@ -20,7 +20,7 @@ namespace MailChimp.Api.Net.Services.Templates
     /// <param name="html">The raw HTML for the template. We support the MailChimp Template Language in any HTML code passed via the API</param>
     /// <param name="folder_id" optional>The id of the folder the template is currently in</param> 
     /// </summary>
-    public async Task<dynamic> CreateTemplate(string templateName, string html, string folder_id = null)
+    internal async Task<dynamic> CreateTemplateAsync(string templateName, string html, string folder_id = null)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable);
@@ -40,7 +40,7 @@ namespace MailChimp.Api.Net.Services.Templates
     /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
     /// <param name="count">The number of records to return.</param>
     /// </summary>
-    public async Task<RootTemplate> GetAllTemplates(int offset = 0, int count = 10)
+    internal async Task<RootTemplate> GetAllTemplatesAsync(int offset = 0, int count = 10)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable);
@@ -53,7 +53,7 @@ namespace MailChimp.Api.Net.Services.Templates
     /// Get information about a specific template
     /// <param name="template_id">The unique id for the template.</param>
     /// </summary>
-    public async Task<Template> GetTemplate(string template_id)
+    internal async Task<Template> GetTemplateAsync(string template_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, template_id);
@@ -65,7 +65,7 @@ namespace MailChimp.Api.Net.Services.Templates
     /// Delete a specific template
     /// <param name="template_id">The unique id for the template</param>
     /// </summary>
-    public async Task<HttpResponseMessage> DeleteTemplate(string template_id)
+    internal async Task<HttpResponseMessage> DeleteTemplateAsync(string template_id)
     {
       string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
                                               SubTargetType.not_applicable, template_id);
@@ -80,7 +80,7 @@ namespace MailChimp.Api.Net.Services.Templates
     /// <param name="folder_id">The folder Id of the template</param>
     /// <param name="templateId">The template identifier</param>        
     /// </summary>        
-    public async Task<dynamic> UpdateTemplate(string name, string html, string templateId, string folder_id = null)
+    internal async Task<dynamic> UpdateTemplateAsync(string name, string html, string templateId, string folder_id = null)
     {
       if (templateId == null)
         throw (new Exception("Template ID must not be null"));
