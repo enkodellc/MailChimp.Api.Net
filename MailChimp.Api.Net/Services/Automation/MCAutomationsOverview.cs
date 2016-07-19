@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MailChimp.Api.Net.Domain.Automations;
 using MailChimp.Api.Net.Enum;
 using MailChimp.Api.Net.Helper;

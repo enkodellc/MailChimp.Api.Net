@@ -27,7 +27,7 @@ using System.Threading;
 
 namespace MailChimp.Api.Net
 {
-  internal class Program
+  public class Program
   {
     private static void Main(string[] args)
     {

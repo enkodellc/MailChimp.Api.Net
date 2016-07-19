@@ -1,9 +1,6 @@
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MailChimp.Api.Net.Domain.Templates;
-using MailChimp.Api.Net.Enum;
-using MailChimp.Api.Net.Helper;
 
 namespace MailChimp.Api.Net.Services.Templates
 {
@@ -14,25 +11,23 @@ namespace MailChimp.Api.Net.Services.Templates
 
   public class MailChimpTemplates
   {
+    private MCTemplatesOverview mcTemplatesOverview;
+
+    public MailChimpTemplates()
+    {
+      mcTemplatesOverview = new MCTemplatesOverview();  
+    }
+
+
     /// <summary>
     /// Create a new template
     /// <param name="templateName">The name of the template</param>
     /// <param name="html">The raw HTML for the template. We support the MailChimp Template Language in any HTML code passed via the API</param>
     /// <param name="folder_id" optional>The id of the folder the template is currently in</param> 
     /// </summary>
-    internal async Task<dynamic> CreateTemplateAsync(string templateName, string html, string folder_id = null)
+    public async Task<dynamic> CreateTemplateAsync(string templateName, string html, string folder_id = null)
     {
-      string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
-                                              SubTargetType.not_applicable);
-
-      Template templateObject = new Template()
-        {
-          name = templateName,
-          folder_id = folder_id,
-          html = html
-        };
-
-      return await BaseOperation.PostAsync<Template>(endpoint, templateObject);
+      return await mcTemplatesOverview.CreateTemplateAsync(templateName, html, folder_id = null);
     }
 
     /// <summary>
@@ -40,37 +35,27 @@ namespace MailChimp.Api.Net.Services.Templates
     /// <param name="offset">The number of records from a collection to skip. Iterating over large collections with this parameter can be slow</param>
     /// <param name="count">The number of records to return.</param>
     /// </summary>
-    internal async Task<RootTemplate> GetAllTemplatesAsync(int offset = 0, int count = 10)
+    public async Task<RootTemplate> GetAllTemplatesAsync(int offset = 0, int count = 10)
     {
-      string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
-                                              SubTargetType.not_applicable);
-      endpoint = String.Format("{0}?offset={1}&count={2}", endpoint, offset, count);
-
-      return await BaseOperation.GetAsync<RootTemplate>(endpoint);
+      return await mcTemplatesOverview.GetAllTemplatesAsync(offset = 0, count = 10);
     }
 
     /// <summary>
     /// Get information about a specific template
     /// <param name="template_id">The unique id for the template.</param>
     /// </summary>
-    internal async Task<Template> GetTemplateAsync(string template_id)
+    public async Task<Template> GetTemplateAsync(string template_id)
     {
-      string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
-                                              SubTargetType.not_applicable, template_id);
-
-      return await BaseOperation.GetAsync<Template>(endpoint);
+      return await mcTemplatesOverview.GetTemplateAsync(template_id);
     }
 
     /// <summary>
     /// Delete a specific template
     /// <param name="template_id">The unique id for the template</param>
     /// </summary>
-    internal async Task<HttpResponseMessage> DeleteTemplateAsync(string template_id)
+    public async Task<HttpResponseMessage> DeleteTemplateAsync(string template_id)
     {
-      string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
-                                              SubTargetType.not_applicable, template_id);
-
-      return await BaseOperation.DeleteAsync(endpoint);
+      return await mcTemplatesOverview.DeleteTemplateAsync(template_id);
     }
 
     /// <summary>
@@ -80,22 +65,9 @@ namespace MailChimp.Api.Net.Services.Templates
     /// <param name="folder_id">The folder Id of the template</param>
     /// <param name="templateId">The template identifier</param>        
     /// </summary>        
-    internal async Task<dynamic> UpdateTemplateAsync(string name, string html, string templateId, string folder_id = null)
+    public async Task<dynamic> UpdateTemplateAsync(string name, string html, string templateId, string folder_id = null)
     {
-      if (templateId == null)
-        throw (new Exception("Template ID must not be null"));
-
-      string endpoint = Authenticate.EndPoint(TargetTypes.templates, SubTargetType.not_applicable,
-                                              SubTargetType.not_applicable, templateId);
-
-      Template templateObject = new Template()
-        {
-          name = name,
-          folder_id = folder_id,
-          html = html
-        };
-
-      return await BaseOperation.PatchAsync<Template>(endpoint, templateObject);
+      return await mcTemplatesOverview.UpdateTemplateAsync(name, html, templateId, folder_id);
     }
   }
 }

@@ -3,7 +3,7 @@ using MailChimp.Api.Net.Domain.Reports;
 
 namespace MailChimp.Api.Net.Domain.Lists
 {
-  internal class RootNote
+  public class RootNote
   {
     public List<Note> notes { get; set; }
     public string email_id { get; set; }

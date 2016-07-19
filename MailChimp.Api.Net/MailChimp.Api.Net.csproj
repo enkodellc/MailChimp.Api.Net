@@ -251,6 +251,8 @@
     <Compile Include="Services\Reports\MCReportsUnsubscribes.cs" />
     <Compile Include="Services\Reports\MCReportsOverview.cs" />
     <Compile Include="Services\TemplateFolders\MailChimpTemplateFolders.cs" />
+    <Compile Include="Services\TemplateFolders\MCTemplateFolderOverview.cs" />
+    <Compile Include="Services\Templates\MCTemplatesOverview.cs" />
     <Compile Include="Services\Templates\MailChimpTemplates.cs" />
   </ItemGroup>
   <ItemGroup>
