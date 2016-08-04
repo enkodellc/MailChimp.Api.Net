@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MailChimp.Api.Net.Domain.CampaignFolder;
@@ -83,6 +84,17 @@ namespace MailChimp.Api.Net.Services.Campaigns
     public async Task<HttpResponseMessage> CancelCampaignAsync(string campaignId)
     {
       return await overview.CancelCampaignAsync(campaignId);
+    }
+
+    /// <summary>
+    /// Send Test campaign email
+    /// <param name="campaignId">Unique id for the campaign</param>
+    /// <param name="test_emails">An array of email addresses to send to</param>
+    /// <param name="send_type">The type of test email to send.</param>
+    /// </summary>
+    public async Task<HttpResponseMessage> TestCampaignAsync(string campaignId, List<string> test_emails, SendType send_type)
+    {
+      return await overview.TestCampaignAsync(campaignId, test_emails, send_type);
     }
 
     /// <summary>

@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using MailChimp.Api.Net.Domain.Campaigns;
 using MailChimp.Api.Net.Enum;
@@ -76,12 +77,31 @@ namespace MailChimp.Api.Net.Services.Campaigns
 
 
     /// <summary>
+    /// Send Test campaign email
+    /// <param name="campaignId">Unique id for the campaign</param>
+    /// <param name="test_emails">An array of email addresses to send to</param>
+    /// <param name="send_type">The type of test email to send.</param>
+    /// </summary>
+    internal async Task<dynamic> TestCampaignAsync(string campaignId, List<string> test_emails, SendType send_type)
+    {
+      string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.actionTest, SubTargetType.not_applicable,
+                                              campaignId);
+      Test test = new Test
+      {
+        test_emails = test_emails,
+        send_type = send_type
+      };
+
+      return await BaseOperation.PostAsync(endpoint, test);
+    }
+
+    /// <summary>
     /// Cancel a campaign
     /// <param name="campaignId">Unique id for the campaign</param>
     /// </summary>
     internal async Task<dynamic> CancelCampaignAsync(string campaignId)
     {
-      string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.action3, SubTargetType.not_applicable,
+      string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.actionCancelSend, SubTargetType.not_applicable,
                                               campaignId);
 
       return await BaseOperation.PostAsync(endpoint);
@@ -93,7 +113,7 @@ namespace MailChimp.Api.Net.Services.Campaigns
     /// </summary>
     internal async Task<dynamic> SendCampaignAsync(string campaignId)
     {
-      string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.action6, SubTargetType.not_applicable,
+      string endpoint = Authenticate.EndPoint(TargetTypes.campaigns, SubTargetType.actionSend, SubTargetType.not_applicable,
                                               campaignId);
 
       return await BaseOperation.PostAsync(endpoint);

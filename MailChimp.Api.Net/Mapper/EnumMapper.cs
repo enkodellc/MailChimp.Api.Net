@@ -23,12 +23,13 @@ namespace MailChimp.Api.Net.Mapper
       string mapValue;
       Dictionary<SubTargetType, string> actionMapper = new Dictionary<SubTargetType, string>
         {
-          {SubTargetType.action1, "actions/start"},
-          {SubTargetType.action2, "actions/pause"},
-          {SubTargetType.action3, "actions/cancel-send"},
-          {SubTargetType.action4, "actions/start-all-emails"},
-          {SubTargetType.action5, "actions/pause-all-emails"},
-          {SubTargetType.action6, "actions/send"}
+          {SubTargetType.actionStart, "actions/start"},
+          {SubTargetType.actionPause, "actions/pause"},
+          {SubTargetType.actionCancelSend, "actions/cancel-send"},
+          {SubTargetType.actionStartAllEmails, "actions/start-all-emails"},
+          {SubTargetType.actionPauseAllEmails, "actions/pause-all-emails"},
+          {SubTargetType.actionSend, "actions/send"},
+          {SubTargetType.actionTest, "actions/test"}
         };
 
       return actionMapper.TryGetValue(actionType, out mapValue) ? mapValue : actionType.ToString();

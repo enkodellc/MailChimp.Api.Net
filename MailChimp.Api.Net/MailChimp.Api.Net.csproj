@@ -95,6 +95,7 @@
     <Compile Include="Domain\Campaigns\Condition.cs" />
     <Compile Include="Domain\Campaigns\ContentArchive.cs" />
     <Compile Include="Domain\Campaigns\ContentTemplate.cs" />
+    <Compile Include="Domain\Campaigns\Test.cs" />
     <Compile Include="Domain\Campaigns\Item.cs" />
     <Compile Include="Domain\Campaigns\Recipients.cs" />
     <Compile Include="Domain\Campaigns\ReportSummary.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Domain\Templates\Template.cs" />
     <Compile Include="Enum\CampaignType.cs" />
     <Compile Include="Enum\CommandProperty.cs" />
+    <Compile Include="Enum\SendType.cs" />
     <Compile Include="Enum\InterestCategoryType.cs" />
     <Compile Include="Enum\ListVisibility.cs" />
     <Compile Include="Enum\MergeFieldType.cs" />
