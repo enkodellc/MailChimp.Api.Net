@@ -185,6 +185,7 @@
     <Compile Include="Domain\Templates\Template.cs" />
     <Compile Include="Enum\CampaignType.cs" />
     <Compile Include="Enum\CommandProperty.cs" />
+    <Compile Include="Enum\Match.cs" />
     <Compile Include="Enum\SendType.cs" />
     <Compile Include="Enum\InterestCategoryType.cs" />
     <Compile Include="Enum\ListVisibility.cs" />
